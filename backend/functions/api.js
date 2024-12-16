@@ -4,14 +4,19 @@ import { routes } from "../Routes/routes.js";
 import cors from "cors"
 import serverless from 'serverless-http'
 
+import dotenv from "dotenv";
+dotenv.config();
+
+
+
+
 const app = express();
 app.use(express.json());
 app.use(cors());
 
+const mongoose_url = process.env.MONGO_URL;
 
 
-
-const mongoose_url = "mongodb+srv://anilcherry1714:Mongo123@cluster0.juxytxs.mongodb.net/Prudent";
 
 
 mongoose.connect(mongoose_url, { useNewUrlParser: true, useUnifiedTopology: true })
