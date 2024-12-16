@@ -7,9 +7,11 @@ const app = express();
 const port = 5000;
 
 app.use(cors({
-    origin: "http://localhost:3000",  // Replace with your frontend's URL
-    methods: ["GET", "POST", "PUT", "DELETE"]
+    origin: ["http://localhost:3000", "https://prudent-assignment-by-anil-thota.netlify.app"], // Array of allowed origins
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+    credentials: true, // If your frontend sends cookies or other credentials
 }));
+
 
 app.use(express.json());
 app.use(routes);
